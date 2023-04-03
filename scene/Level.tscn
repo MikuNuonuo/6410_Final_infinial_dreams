@@ -702,6 +702,8 @@ margin_top = -893.0
 margin_right = 647.0
 margin_bottom = -817.0
 script = ExtResource( 40 )
+minutes = 0
+seconds = 5
 
 [node name="min" type="RichTextLabel" parent="countdown"]
 margin_left = -217.0

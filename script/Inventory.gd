@@ -48,10 +48,10 @@ func slot_gui_input(event: InputEvent, slot: SlotClass):
 				if !slot.item:
 					slot.putIntoSlot(holding_item)
 					holding_item =null
-				elif (holding_item.get_name() == "cystal" and slot.item.get_name() == "SnowFlower") or (holding_item.get_name() == "SnowFlower" and slot.item.get_name() =="cystal"):
+				elif (holding_item.get_name() == "cystal" and slot.item.get_name() == "Snowflower") or (holding_item.get_name() == "Snowflower" and slot.item.get_name() =="cystal"):
 					holding_item.queue_free()
 					holding_item = null	
-					combine_item("cystal", "SnowFlower", "BluePotion")
+					combine_item("cystal", "Snowflower", "BluePotion")
 				elif (holding_item.get_name() == "BluePotion" and slot.item.get_name() == "Beard") or (holding_item.get_name() == "Beard" and slot.item.get_name() == "BluePotion"):
 					holding_item.queue_free()
 					holding_item = null	
@@ -60,10 +60,10 @@ func slot_gui_input(event: InputEvent, slot: SlotClass):
 					holding_item.queue_free()
 					holding_item = null	
 					combine_item("cystal", "Beard", "YellowPotion")	
-				elif (holding_item.get_name() == "YellowPotion" and slot.item.get_name() == "SnowFlower") or (holding_item.get_name() == "SnowFlower" and slot.item.get_name() == "YellowPotion"):
+				elif (holding_item.get_name() == "YellowPotion" and slot.item.get_name() == "Snowflower") or (holding_item.get_name() == "Snowflower" and slot.item.get_name() == "YellowPotion"):
 					holding_item.queue_free()
 					holding_item = null	
-					combine_item("YellowPotion", "SnowFlower", "drug")
+					combine_item("YellowPotion", "Snowflower", "drug")
 				else:
 					var temp_item = slot.item
 					slot.pickFromSlot()

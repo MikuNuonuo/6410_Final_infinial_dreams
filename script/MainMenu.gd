@@ -2,7 +2,6 @@ extends Control
 
 onready var menu = $Menu
 onready var setting = $AudioVedioOptions
-onready var level = $Level
 onready var ThanksName = $ThanksName
 
 
@@ -46,10 +45,6 @@ func _on_Start2_pressed():
 	get_tree().change_scene("res://scene/Intro.tscn")
 	return
 
-
-func _on_BackfromLevel_pressed():
-	$click.play()
-	show_and_hide(menu, level)
 
 
 func _on_BackfromSetting_pressed():
@@ -108,3 +103,10 @@ func _on_Thanks_pressed():
 	$click.play()
 	show_and_hide(ThanksName, menu)
 
+
+
+	
+
+
+func _on_quit_pressed():
+	Global.emit_signal("show")

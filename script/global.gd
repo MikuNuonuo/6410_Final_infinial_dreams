@@ -11,6 +11,7 @@ signal highLight(style)
 signal ghost_die
 signal star_Appear
 signal player_escape
+signal show
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

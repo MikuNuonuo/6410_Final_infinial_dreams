@@ -1,31 +1,8 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://script/MainMenu.gd" type="Script" id=1]
-[ext_resource path="res://Asset/level1map.png" type="Texture" id=2]
+[ext_resource path="res://Asset/audio/sound_effect/click.wav" type="AudioStream" id=1]
+[ext_resource path="res://script/MainMenu.gd" type="Script" id=2]
 [ext_resource path="res://Asset/audio/Crystal magic from the Ice Palace.mp3" type="AudioStream" id=3]
-[ext_resource path="res://Asset/audio/sound_effect/click.wav" type="AudioStream" id=4]
-[ext_resource path="res://Asset/fonts/kenney_mini_square.ttf" type="DynamicFontData" id=5]
-
-[sub_resource type="Curve" id=2]
-_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
-
-[sub_resource type="CurveTexture" id=3]
-curve = SubResource( 2 )
-
-[sub_resource type="ParticlesMaterial" id=4]
-emission_shape = 2
-emission_box_extents = Vector3( 300, 300, 1 )
-flag_disable_z = true
-direction = Vector3( 1, -1, 0 )
-spread = 17.85
-flatness = 1.0
-gravity = Vector3( 0, -2, 0 )
-initial_velocity = 5.0
-angular_velocity = 6.76
-orbit_velocity = 0.0
-orbit_velocity_random = 0.0
-scale = 7.33
-scale_curve = SubResource( 3 )
 
 [sub_resource type="Environment" id=1]
 glow_enabled = true
@@ -33,29 +10,12 @@ glow_levels/2 = true
 glow_intensity = 1.21
 glow_strength = 1.03
 
-[sub_resource type="DynamicFont" id=5]
-size = 125
-outline_size = 10
-outline_color = Color( 0.819608, 0.529412, 1, 1 )
-font_data = ExtResource( 5 )
-
 [node name="MainMenu" type="Control"]
-script = ExtResource( 1 )
-
-[node name="Sprite" type="Sprite" parent="."]
-modulate = Color( 0.682353, 0.792157, 1, 1 )
-position = Vector2( 568, 961 )
-scale = Vector2( 1.0786, 1.05266 )
-texture = ExtResource( 2 )
-
-[node name="Particles2D" type="Particles2D" parent="."]
-modulate = Color( 1.16, 0.58, 5.21, 0.8 )
-position = Vector2( 529, 1113 )
-amount = 20
-process_material = SubResource( 4 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
 
 [node name="ColorRect" type="ColorRect" parent="."]
-visible = false
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -66,6 +26,54 @@ margin_right = 571.0
 margin_bottom = 944.0
 color = Color( 0, 0, 0, 0.52549 )
 
+[node name="Menu" type="VBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -256.0
+margin_top = -411.0
+margin_right = -159.0
+margin_bottom = -294.0
+rect_scale = Vector2( 5, 5 )
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="Start2" type="Button" parent="Menu"]
+modulate = Color( 23.12, 2.9, 7.51, 1 )
+margin_right = 97.0
+margin_bottom = 20.0
+text = "Start"
+
+[node name="Setting" type="Button" parent="Menu"]
+modulate = Color( 2.31, 2.32, 38.73, 1 )
+margin_top = 24.0
+margin_right = 97.0
+margin_bottom = 44.0
+text = "Setting"
+
+[node name="Exit" type="Button" parent="Menu"]
+modulate = Color( 44.51, 2.33, 1, 1 )
+margin_top = 48.0
+margin_right = 97.0
+margin_bottom = 68.0
+text = "Exit"
+
+[node name="Thanks" type="Button" parent="Menu"]
+modulate = Color( 1.74, 2.91, 9.83, 1 )
+margin_top = 72.0
+margin_right = 97.0
+margin_bottom = 92.0
+text = "Thanks"
+
+[node name="quit" type="Button" parent="Menu"]
+modulate = Color( 2.89, 2.91, 14.45, 1 )
+margin_top = 96.0
+margin_right = 97.0
+margin_bottom = 116.0
+text = "Quit"
+
 [node name="AudioVedioOptions" type="Control" parent="."]
 visible = false
 modulate = Color( 5.2, 7.56, 10.98, 1 )
@@ -73,10 +81,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = 515.0
-margin_top = 783.0
-margin_right = 515.0
-margin_bottom = 783.0
+margin_left = -59.0
+margin_top = -146.0
+margin_right = -59.0
+margin_bottom = -146.0
 rect_scale = Vector2( 4, 4 )
 
 [node name="ColorRect" type="ColorRect" parent="AudioVedioOptions"]
@@ -224,10 +232,10 @@ text = "Back"
 [node name="ThanksName" type="Control" parent="."]
 visible = false
 modulate = Color( 0.960784, 1, 0.482353, 1 )
-margin_left = 56.0
-margin_top = 451.0
-margin_right = 384.0
-margin_bottom = 633.0
+margin_left = 52.0
+margin_top = 440.0
+margin_right = 380.0
+margin_bottom = 622.0
 rect_scale = Vector2( 3, 3 )
 
 [node name="ColorRect" type="ColorRect" parent="ThanksName"]
@@ -289,61 +297,13 @@ stream = ExtResource( 3 )
 autoplay = true
 
 [node name="click" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 4 )
+stream = ExtResource( 1 )
 
-[node name="Menu" type="Control" parent="."]
-margin_right = 40.0
-margin_bottom = 40.0
-
-[node name="Menu" type="VBoxContainer" parent="Menu"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = 287.0
-margin_top = 696.0
-margin_right = 384.0
-margin_bottom = 813.0
-rect_scale = Vector2( 5, 5 )
-__meta__ = {
-"_editor_description_": ""
-}
-
-[node name="Start2" type="Button" parent="Menu/Menu"]
-modulate = Color( 23.12, 2.9, 7.51, 1 )
-margin_right = 97.0
-margin_bottom = 20.0
-text = "Start"
-
-[node name="Setting" type="Button" parent="Menu/Menu"]
-modulate = Color( 2.31, 2.32, 38.73, 1 )
-margin_top = 24.0
-margin_right = 97.0
-margin_bottom = 44.0
-text = "Setting"
-
-[node name="Exit" type="Button" parent="Menu/Menu"]
-modulate = Color( 44.51, 2.33, 1, 1 )
-margin_top = 48.0
-margin_right = 97.0
-margin_bottom = 68.0
-text = "Exit"
-
-[node name="Thanks" type="Button" parent="Menu/Menu"]
-modulate = Color( 1.74, 2.91, 9.83, 1 )
-margin_top = 72.0
-margin_right = 97.0
-margin_bottom = 92.0
-text = "Thanks"
-
-[node name="Label" type="Label" parent="Menu"]
-margin_left = 89.0
-margin_top = 366.0
-margin_right = 994.0
-margin_bottom = 523.0
-custom_fonts/font = SubResource( 5 )
-text = "Infinial Dream"
-
+[connection signal="pressed" from="Menu/Start2" to="." method="_on_Start2_pressed"]
+[connection signal="pressed" from="Menu/Setting" to="." method="_on_Setting_pressed"]
+[connection signal="pressed" from="Menu/Exit" to="." method="_on_Exit_pressed"]
+[connection signal="pressed" from="Menu/Thanks" to="." method="_on_Thanks_pressed"]
+[connection signal="pressed" from="Menu/quit" to="." method="_on_quit_pressed"]
 [connection signal="toggled" from="AudioVedioOptions/Video/Check/FullScreen" to="." method="_on_FullScreen_toggled"]
 [connection signal="toggled" from="AudioVedioOptions/Video/Check/Borderless" to="." method="_on_Borderless_toggled"]
 [connection signal="toggled" from="AudioVedioOptions/Video/Check/VSync" to="." method="_on_VSync_toggled"]
@@ -352,7 +312,3 @@ text = "Infinial Dream"
 [connection signal="value_changed" from="AudioVedioOptions/Audio/Slider/Sound FX" to="." method="_on_Sound_FX_value_changed"]
 [connection signal="pressed" from="AudioVedioOptions/BackfromSetting" to="." method="_on_BackfromSetting_pressed"]
 [connection signal="pressed" from="ThanksName/BackfromThanksl" to="." method="_on_BackfromThanksl_pressed"]
-[connection signal="pressed" from="Menu/Menu/Start2" to="." method="_on_Start2_pressed"]
-[connection signal="pressed" from="Menu/Menu/Setting" to="." method="_on_Setting_pressed"]
-[connection signal="pressed" from="Menu/Menu/Exit" to="." method="_on_Exit_pressed"]
-[connection signal="pressed" from="Menu/Menu/Thanks" to="." method="_on_Thanks_pressed"]

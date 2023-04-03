@@ -12,4 +12,6 @@ func _ready():
 
 func _on_Restart_pressed():
 	$click.play()
+	PlayerInventory.inventory = {}
+	Global.emit_signal("picked")
 	get_tree().change_scene("res://scene/MainMenu.tscn")

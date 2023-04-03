@@ -1,4 +1,4 @@
-[gd_scene load_steps=70 format=2]
+[gd_scene load_steps=71 format=2]
 
 [ext_resource path="res://Asset/audio/sound_effect/cat_sound.wav" type="AudioStream" id=1]
 [ext_resource path="res://Asset/level1map.png" type="Texture" id=2]
@@ -44,6 +44,7 @@
 [ext_resource path="res://Asset/fonts/kenney_mini_square.ttf" type="DynamicFontData" id=42]
 [ext_resource path="res://Asset/audio/sound_effect/star.wav" type="AudioStream" id=43]
 [ext_resource path="res://Asset/audio/sound_effect/ding.wav" type="AudioStream" id=44]
+[ext_resource path="res://scene/Menu.tscn" type="PackedScene" id=45]
 
 [sub_resource type="Animation" id=2]
 length = 0.001
@@ -701,6 +702,8 @@ margin_top = -893.0
 margin_right = 647.0
 margin_bottom = -817.0
 script = ExtResource( 40 )
+minutes = 0
+seconds = 5
 
 [node name="min" type="RichTextLabel" parent="countdown"]
 margin_left = -217.0
@@ -734,6 +737,33 @@ process_mode = 0
 wait_time = 0.1
 autostart = true
 
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Menu2" type="Button" parent="CanvasLayer"]
+modulate = Color( 23.12, 2.9, 7.51, 1 )
+margin_left = 438.0
+margin_top = 76.0
+margin_right = 535.0
+margin_bottom = 96.0
+rect_scale = Vector2( 2, 2 )
+text = "Menu"
+
+[node name="Restart" type="Button" parent="CanvasLayer"]
+modulate = Color( 2.89, 2.33, 43.93, 1 )
+margin_left = 200.0
+margin_top = 76.0
+margin_right = 297.0
+margin_bottom = 96.0
+rect_scale = Vector2( 2, 2 )
+text = "Restart"
+
+[node name="Menu" parent="CanvasLayer" instance=ExtResource( 45 )]
+visible = false
+margin_left = 14.0
+margin_top = 17.0
+margin_right = 14.0
+margin_bottom = 17.0
+
 [connection signal="input_event" from="Bell/Area2D" to="Bell" method="_on_Area2D_input_event"]
 [connection signal="input_event" from="Mirror/Area2D" to="Mirror" method="_on_Area2D_input_event"]
 [connection signal="area_entered" from="Cat/Area2D" to="Cat" method="_on_Area2D_area_entered"]
@@ -746,3 +776,5 @@ autostart = true
 [connection signal="input_event" from="MaigicNote/Area2D" to="MaigicNote" method="_on_Area2D_input_event"]
 [connection signal="input_event" from="escape/Area2D" to="escape" method="_on_Area2D_input_event"]
 [connection signal="timeout" from="countdown/Timer" to="countdown" method="_on_Timer_timeout"]
+[connection signal="pressed" from="CanvasLayer/Menu2" to="." method="_on_Menu2_pressed"]
+[connection signal="pressed" from="CanvasLayer/Restart" to="." method="_on_Restart_pressed"]

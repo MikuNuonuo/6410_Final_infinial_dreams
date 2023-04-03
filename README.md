@@ -7,5 +7,6 @@ Use the mouse to find clues and items in the room, and synthesize items in your 
 
 **Win condition:**
 successfully leave the room within five minutes
+
 **Failure condition:**
 Fail to leave the room within five minutes
